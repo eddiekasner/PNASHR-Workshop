@@ -1,7 +1,7 @@
 ---
 title: "PNASHR-Workshop"
 author: "![CC BY-SA 4.0](images/cc_by-sa_4.png){width=10%}"
-date: "[DEOHS R onramp](https://github.com/deohs/r_onramp) by [brianhigh](https://github.com/brianhigh) is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)"
+date: "[DEOHS R onramp](https://github.com/deohs/r_onramp) by [deohs](https://github.com/deohs) is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)"
 
 output:
   ioslides_presentation:
@@ -19,14 +19,88 @@ suppressMessages(library(knitr))
 opts_chunk$set(tidy=FALSE, cache=TRUE, echo=TRUE, message=FALSE)
 ```
 
-## Learning Objectives
+## Agenda
+
+1. Discuss possible "5-year plan" (e.g. [reproducible project managment](reproducible project management)) (30 min)
+    - Overall data framework
+    - Uniform data collection tools
+    - Data management
+    - Data sources
+    - Data analysis
+2. Hands-on workshop and R "onramp" (60 min)
+
+## Overall data framework
+
+1. Data collection 
+    - Sources and collection methods
+2. Data management 
+    - [Findable, Accessible, Interoperable, and Reusable (FAIR) Principles](https://www.go-fair.org/fair-principles/)
+3. Data analysis 
+    - [Code review](https://ropensci.org/blog/2017/09/01/nf-softwarereview/), collaboration, generalizable
+4. Data sharing 
+    - Visualizations, API key, App platforms, Web tracking
+
+## Uniform data collection tools
+
+1. Text message questionnaires 
+    - [REDCap](https://www.project-redcap.org/)  
+2. Online survey or time series questionnaires 
+    - [REDCap](https://www.project-redcap.org/)  
+3. Other survey tools  
+    - [Qualtrics](https://www.qualtrics.com/lp/qualtrics-demo/?utm_source=google&utm_medium=ppc&utm_campaign=US-Brand-Qualtrics-Brand&utm_keyword=qualtrics&MatchType=e&adid=178143128566&utm_content=178143128566&adgroupid=41339289338&campaignid=755409789&AdGroup={AdGroup}&BidMatchType={BidMatchType}&Target=&targetid=kwd-8232955280&Device=c&devicemodel=&loc_phsyical_ms=9033307&Placement=&querystring={querystring}&network=g&adposition=&GCLID=Cj0KCQjwuL_8BRCXARIsAGiC51Aab4Dm1yeGdQLAV3t7KDRabiZeIWyUylck4aZuKPFPINmVs3YgHAwaAmppEALw_wcB&gclid=Cj0KCQjwuL_8BRCXARIsAGiC51Aab4Dm1yeGdQLAV3t7KDRabiZeIWyUylck4aZuKPFPINmVs3YgHAwaAmppEALw_wcB)  
+    - [ODK](https://getodk.org/)  
+4. Automated, reproducible and trackable QA/QC procedures for exposure data  
+
+## Data management
+
+1. Raw data $\rightarrow$ publication
+2. Extension of "chain of custody" for samples
+
+## Data sources
+
+1. [AFF Health Indicators](https://github.com/eddiekasner/aghealthindicators#ag-health-indicators)
+2. Visit this page to explore datasets for burden, need, impact
+    - Please add (via GitHub or email), especially for:
+        - Forestry
+        - Fishing
+        - Oregon
+        - Idaho
+        - Alaska
+
+## Data analysis
+1. Develop collaborative code development tools (Github?)
+2. Develop systems for code review
+3. Develop functions and tools that can be generalized and shared
+
+## Hands-on workshop
+
+1. Exercise 1: Introduction to R and RStudio
+    - Option 1: Use the DEOHS maintained RShiny server
+        - https://rstudio.sph.washington.edu/  
+    - Option 2: Install R and RShiny onto your personal computer
+2. Exercise 2: Flexible Dashboard
+    - https://github.com/elaustin/Ag-Health-Indicators/blob/master/Injury%20Data%20WA/flexdash_injury.Rmd 
+
+## Resources
+
+- Eddie Kasner (ejkasner@uw.edu)
+    - https://github.com/eddiekasner/aghealthindicators#aff-health-indicators
+    - https://github.com/eddiekasner/PNASHR-Workshop
+- Elena Austin (elaustin@uw.edu)
+    - https://github.com/elaustin/Ag-Health-Indicators 
+    - R code and visualization examples
+- Brian High (high@uw.edu)
+    - https://github.com/brianhigh/computing_bootcamp/tree/master/R#introduction-to-r-rstudio-markdown-and-git  
+    - Support with R, R Studio, and Git (Github)
+- [UW DEOHS Coding Community of Practice](https://github.com/deohs/coders#coders)
+
+## Workshop Objectives
 
 * What R is (and isn't)
 * Why R is so popular
 * What RStudio is and isn't
 * Reasons to use RStudio
 * How to use RStudio
-
 
 ## What is R?
 
@@ -50,7 +124,6 @@ opts_chunk$set(tidy=FALSE, cache=TRUE, echo=TRUE, message=FALSE)
 * Supports data analysis "best practices"
 * End-to-end solution for reproducible data analysis
 * Capable of handling "Big Data"
-
 
 ## What RStudio is and isn't
 
@@ -84,7 +157,7 @@ be covering the other alternatives.
 ### RStudio Server accessed through a web browser
 
 * Easier to learn and teach on because it's centrally managed by IT.
-* SPH runs an RStudio Server on "rstudio.sph" for use by all SPH departments.
+* SPH runs an RStudio Server on "rstudio.sph" for use by all UW SPH departments.
    - Link: [https://rstudio.sph.washington.edu](https://rstudio.sph.washington.edu)
    - Free for SPH affiliates (students, staff, faculty, postdocs, etc.) to use. 
    - Requires UW NetID.
@@ -145,180 +218,6 @@ Welcome to RStudio! Next, we'll provide an orientation to:
     - buttons
 * Customization and Global options
 * File management
-
-## Orientation: Default Pane Locations
-
-1. If there is a file open, it will appear in the upper-left ("Source") pane
-2. The session information will be found in the upper-right ("Environment") pane
-3. The "Viewer" pane with tabs for files, Plots, Help, etc. is in the 
-   lower-right
-4. The interactive R prompt ("Console") will appear in the left or lower-left pane
-
-![](images/rstudiopanes630x450.png)
-
-## Orientation: Source Pane
-
-The "Source" pane is where files will display when opened and where data grids
-will display.
-
-The reason it is called the "Source" pane is because it is primarily used to
-edit source code such as R scripts and other text files. 
-
-When text files are opened in RStudio, the tab they are displayed in is a 
-full-featured text editor with syntax highlighting, search-and-replace and
-many other features.
-
-*You can select syntax highlighting for many programming languages in a pick list.
-* Editor and other options may be set under Tools -> Global Options.
-
-## Orientation: Environment Pane
-
-The "Environment" pane contains tabs for the "Environment" variables, the 
-command "History", and other content related to your current session or Project.
-
-The "Environment" variables are those data objects which are currently loaded
-into memory. 
-
-* A little bit of information about their structure and contents will be 
-  displayed here. 
-* You can click an item to view it, often as a grid in the "Source" pane
-
-The "History" tab is for your command history. You can send commands from 
-your history to your Console tab in the Console pane or to the selected editor 
-tab in the Source pane.
-
-The "Git" tab will only show when you are working with a Project managed by
-the Git version control system. (More on this later.)
-
-## Orientation: Viewer Pane
-
-The "Viewer" pane is where you can view and manipulate:
-
-* Files
-* Plots
-* Packages
-* Help
-* Additional web content ("Viewer" tab)
-
-There is a tab for each of these.
-
-
-## The Help Tab in the Viewer Pane 
-
-![](images/help.png)
-
-
-
-## Orientation: Console Pane
-
-The Console is where you can type (or paste) commands at an interactive R prompt.
-
-The prompt will be found at the bottom of the Console tab of the Console pane.
-
-Code selected from the text editor in the Source pane or from the command history in the Environment pane can also be run here.
-
-There may be other tabs for additional program output in the Console pane. 
-
-For example, output from pressing the "Knit" button will appear in a "R Markdown" tab in the Console pane.
-
-There is also a Terminal tab for interacting with the command "shell" of your operating system, such as "Bash"
-
-## How the Console prompt works
-
-Input:
-
-* The prompt waits for R commands
-* You type a, R command at the prompt and press *Enter* (or *Return*)
-* R will parse your commands and try execute them
-
-Output:  
-
-* R will either show an error, show results, or silently complete the task
-* R will display the prompt with a `>` character (by default)
-* R will display a `+` prompt if it expects more from you than you provided
-* R will display output below the command, with `[#]` often preceding data
-
-## How to use Console output
-
-R returns data by:
-
-* Showing data on the screen in the console
-* Saving data to a variable (in memory)
-* Saving data to a file (on your disk or the network)
-* Saving data to a database (either locally or over the network)
-
-Usually, you manipulate data in memory and then save it to a file or database when you are done working with it.
-
-While you could copy text results shown to the screen and paste them elsewhere, this method should be avoided. 
-
-## Orientation: Panes and Tabs
-
-Each pane has two grey buttons in the upper left which allow you to minimize or
-maximize the pane. Maximizing increases the height, not the width.
-
-Each pane has one or more tabs which allow you to pick what you view in that
-pane.
-
-Some tabs have a grey "X" in the upper left corner of that tab that let's you
-close the tab.
-
-Some tabs offer a menu of buttons with text labels beneath the tab. These allow
-you to perform operations related to the contents of the tab. Some of the buttons are pick-lists.
-
-Some tabs offer "refresh", "clear" and three dot (...) menu buttons.
-
-The "Files" tab offers a "breadcrumb" navigation feature under the row of buttons.
-
-## Orientation: Menus and Buttons
-
-The top-level application menus will have the same choices regardless of
-which pane you are using. 
-
-Some choices will be "greyed out" if they are not available for a particular 
-operation.
-
-The menus, buttons, and pick-lists in the panes will vary depending on the
-content of the pane and the context of the operation you are performing.
-
-There is a button with an icon of a whisk broom (or brush). The text associated
-with this button is "Clear" or "Clear All". You can use it to clear the 
-contents of the tab.
-
-Some tabs offer a Search box with a magnifying glass icon. Tabs with this
-feature include the Environment, Files, Packages, and Help tabs.
-
-## Customization and Global Options
-
-You can customize many aspects of RStudio with the Tools -> Global Options
-menu choice.
-
-This opens a configuration settings window with navigation on the side.
-
-Here are some recommended settings:
-
-* Code -> (Editing) -> [x] Insert spaces for tab, Tab width 2
-    - ![](images/insert_spaces_for_tab.png)
-* Code -> (Display) -> [x] Show margin, Margin column 80
-    - ![](images/show_margin.png)
-
-These settings will help you write more readable code. (More on this later.)
-
-You may also wish to customize your pane layout in "Pane Layout".
-
-## File Management
-
-The Files tab of the Viewer pane is useful for file navigation and management.
-
-You can navigate to your files and move, copy, rename, and delete them. You can
-create new folders. 
-
-In RStudio on the Plasmid you will also upload and download files using this tab.
-
-The home (~) folder for RStudio on Plasmid is your DEOHS H:// drive
-
-The three-dot (...) button on the Files tab prompts for a custom file path.
-
-RStudio offers a "Project" feature to make working with files easier (more on this later).
 
 ## How to install R and RStudio Desktop
 
