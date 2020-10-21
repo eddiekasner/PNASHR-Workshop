@@ -58,16 +58,20 @@ output:
 1. [AFF Health Indicators](https://github.com/eddiekasner/aghealthindicators#ag-health-indicators)
 2. Visit this page to explore datasets for burden, need, impact
     - Please add (via GitHub or email), especially for:
-        - Forestry
-        - Fishing
-        - Oregon
-        - Idaho
-        - Alaska
+        - Forestry, Fishing
+        - Idaho, Alaska, Oregon
 
 ## Data analysis
+
 1. Develop collaborative code development tools (Github?)
 2. Develop systems for code review
 3. Develop functions and tools that can be generalized and shared
+
+## Public-facing data
+
+1. Training
+2. Hypothesis generation
+3. Outreach and engagement
 
 ## Hands-on workshop
 
