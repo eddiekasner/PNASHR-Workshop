@@ -21,7 +21,7 @@ opts_chunk$set(tidy=FALSE, cache=TRUE, echo=TRUE, message=FALSE)
 
 ## Agenda
 
-1. Discuss possible "5-year plan" (e.g. [reproducible project managment](reproducible project management)) (30 min)
+1. Discuss possible "5-year plan" (e.g. [reproducible project managment](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0212390)) (30 min)
     - Overall data framework
     - Uniform data collection tools
     - Data management
@@ -94,7 +94,7 @@ opts_chunk$set(tidy=FALSE, cache=TRUE, echo=TRUE, message=FALSE)
     - Support with R, R Studio, and Git (Github)
 - [UW DEOHS Coding Community of Practice](https://github.com/deohs/coders#coders)
 
-## Workshop Objectives
+## Workshop
 
 * What R is (and isn't)
 * Why R is so popular
@@ -109,7 +109,7 @@ opts_chunk$set(tidy=FALSE, cache=TRUE, echo=TRUE, message=FALSE)
 * R is a programming **_language_** with over 10,000 user-contributed packages
 * R is an open source and **_community_**-driven software development **_project_**
 
-## What R Isn't
+## What R isn't
 
 * R is not a point-and-click software application (though some are available for R)
 * R is not a proprietary commercial product (though some do sell it)
@@ -192,32 +192,6 @@ and has paid subscription upgrade.
 * The RStudio Desktop application is available for free on the [internet](https://www.rstudio.com/products/rstudio/download/).
 * We will not focus on local installation or use during this introductory onramp,
 but some instructions are at the end of this presentation.
-
-## Accessing the DEOHS Plasmid Server (from off-campus)
-
-* This option requires a DEOHS departmental comuting account.
-* First, make sure the [Husky OnNet VPN](https://itconnect.uw.edu/connect/uw-networks/about-husky-onnet/) software installed on your computer.
-* Next, launch the VPN app ("Big-IP Edge Client") and sign into the UW network.
-
-![](images/big_ip_edge_client.png)
-
-## Login to the DEOHS Plasmid Server
-
-* Next (whether on-campus or not) use this link to sign into DEOHS Plasmid: [https://plasmid.deohs.washington.edu](https://plasmid.deohs.washington.edu)
-* If you see a UW Weblogin prompt, log in using your UW NetID and UW password
-* At the RStudio Server login screen, use your UW NetID and DEOHS password
-
-## How to use RStudio
-
-Welcome to RStudio! Next, we'll provide an orientation to: 
-
-* Screen/panel layout
-    - panes
-    - tabs
-    - menus
-    - buttons
-* Customization and Global options
-* File management
 
 ## How to install R and RStudio Desktop
 
