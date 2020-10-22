@@ -19,7 +19,9 @@ output:
 
 ## Agenda
 
-1. Discuss Center Goals (e.g. [reproducible project managment](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0212390)) (30 min)
+1. [NASEM: Reproducibility and Replicability in Science](https://www.nationalacademies.org/our-work/reproducibility-and-replicability-in-science)
+
+2. Discuss Center Goals (e.g. [reproducible project managment](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0212390)) (30 min)
     - Overall data framework
     - Uniform data collection tools
     - Data management
@@ -27,7 +29,19 @@ output:
     - Data analysis
     - Data Sharing
     
-2. Hands-on workshop and R "onramp" (60 min)
+3. Hands-on workshop and R "onramp" (60 min)
+
+## NASEM Definitions
+
+**Reproducibility**
+
+> *"obtaining consistent results using the same input data, computational steps, methods, and conditions of analysis"*
+
+**Replicability**
+
+> *"obtaining consistent results across studies aimed at
+answering the same scientific question, each of which has
+obtained its own data"*
 
 ## Overall data framework
 
@@ -299,6 +313,18 @@ library(pacman)
 p_load(table1)
 ```
 
+```
+## 
+##   There is a binary version available but the source version is later:
+##         binary source needs_compilation
+## Formula  1.2-3  1.2-4             FALSE
+## 
+## package 'table1' successfully unpacked and MD5 sums checked
+## 
+## The downloaded binary packages are in
+## 	C:\Users\ejkasner\AppData\Local\Temp\RtmpWgLkTD\downloaded_packages
+```
+
 ## Loading and Importing Data
 
 1. Data must be formatted and ready to be imported in R. Formats that are import ready include comma separated values (CSV) lists.
@@ -427,6 +453,19 @@ Regression output can be easily formatted for publication or using packages such
 ```r
 #make regression output pretty (can generate LaTeX and html output)
 p_load(stargazer)
+```
+
+```
+## Warning: unable to access index for repository http://www.stats.ox.ac.uk/pub/RWin/bin/windows/contrib/4.0:
+##   cannot open URL 'http://www.stats.ox.ac.uk/pub/RWin/bin/windows/contrib/4.0/PACKAGES'
+```
+
+package 'stargazer' successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+	C:\Users\ejkasner\AppData\Local\Temp\RtmpWgLkTD\downloaded_packages
+
+```r
 stargazer(fit, type = 'html')
 ```
 
