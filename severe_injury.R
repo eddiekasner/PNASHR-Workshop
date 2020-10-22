@@ -81,7 +81,62 @@ p_load(leaflet)
 p_load(leaflet.extras)
 
 leaflet() %>%
-  addProviderTiles("Stamen.TonerHybrid") %>%
+  addProviderTiles("Stamen.TonerLite") %>%
   addHeatmap(data = severeinjuries_ag,
              lng = ~Longitude, lat = ~Latitude,
-             radius = 5 )
+             radius = 5,blur = 8) 
+
+#plot event types
+
+p_load(ggplot2)
+
+#how many reports are there in Idaho?
+nrow(severeinjuries_ag[State == 'IDAHO',])
+
+#identify all unique event descriptions (EventTitle)
+uniqueevents_ID = severeinjuries_ag[State == 'IDAHO', .N, by = c("EventTitle")]
+
+setorder(uniqueevents_ID, -N)
+
+#Plot bar chart of 8 most common events
+ggplot(uniqueevents_ID[1:8,], aes(EventTitle, N)) + 
+  geom_bar(stat = "identity") + coord_flip() + theme_light() 
+
+#plot bar chart correctly sorted
+ggplot(uniqueevents_ID[1:8,], aes(reorder(EventTitle, N), N)) + 
+  geom_bar(stat = "identity") + coord_flip() + theme_light() + 
+  xlab("Event Title") + 
+  ylab("")
+  
+#How many hospitalizations were there?
+hosp_ID = severeinjuries_ag[Year <2020, 
+                            list(Hospital_sum = sum(Hospitalized=="Yes")), 
+                            by = c("Year", "State")]
+
+#Create new column with total hospitalizations over all time by state
+hosp_ID[, total := sum(Hospital_sum), by = State]
+
+ggplot(hosp_ID[total>30,], 
+       aes(Year, Hospital_sum, color = State)) + 
+  geom_line() +
+  scale_color_brewer(palette="Paired") + 
+  theme_light() + 
+  ylab( "Number of Hospitalizations") +
+  ggtitle("Total number of hospitalizations by State")
+
+#How many totalreports were there?
+total_events = severeinjuries_ag[Year <2020, 
+                            list(Events = .N), 
+                            by = c("Year", "State")]
+
+#Create new column with total hospitalizations over all time by state
+total_events[, total := sum(Events), by = State]
+
+ggplot(total_events[total>30,], 
+       aes(Year, Events, color = State)) + 
+  geom_line() +
+  scale_color_brewer(palette="Paired") + 
+  theme_light() + 
+  ylab( "Total Events") +
+  ggtitle("Total number of reported severe injuries by State")
+                    
