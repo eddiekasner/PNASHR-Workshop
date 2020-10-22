@@ -80,7 +80,7 @@ opts_chunk$set(tidy=FALSE, cache=TRUE, echo=TRUE, message=FALSE)
 1. Introduction to R and RStudio
     - Option 1: Use the SPH maintained RStudio server
         - https://rstudio.sph.washington.edu/  
-    - Option 2: Install R and RShiny onto your personal computer
+    - Option 2: Install R and RStudio onto your personal computer
     
 2. Obtain and analyze data from an online source
     - Example Quarterly Workforce Indicator Data
