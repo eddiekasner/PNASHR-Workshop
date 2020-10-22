@@ -1,7 +1,8 @@
 ---
 title: "PNASHR-Workshop"
-author: "![CC BY-SA 4.0](images/cc_by-sa_4.png){width=10%}"
-date: "[DEOHS R onramp](https://github.com/deohs/r_onramp) by [deohs](https://github.com/deohs) is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)"
+author: "Eddie Kasner and Elena Austin"
+date: "[PNASHR-Workshop](https://github.com/eddiekasner/PNASHR-Workshop) by [PNASH](https://deohs.washington.edu/pnash/) is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)"
+License: "![CC BY-SA 4.0](images/cc_by-sa_4.png){width=10%}"
 
 output:
   ioslides_presentation:
@@ -21,12 +22,14 @@ opts_chunk$set(tidy=FALSE, cache=TRUE, echo=TRUE, message=FALSE)
 
 ## Agenda
 
-1. Discuss possible "5-year plan" (e.g. [reproducible project managment](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0212390)) (30 min)
+1. Discuss Center Goals (e.g. [reproducible project managment](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0212390)) (30 min)
     - Overall data framework
     - Uniform data collection tools
     - Data management
     - Data sources
     - Data analysis
+    - Data Sharing
+    
 2. Hands-on workshop and R "onramp" (60 min)
 
 ## Overall data framework
@@ -34,7 +37,7 @@ opts_chunk$set(tidy=FALSE, cache=TRUE, echo=TRUE, message=FALSE)
 1. Data collection 
     - Sources and collection methods
 2. Data management 
-    - [Findable, Accessible, Interoperable, and Reusable (FAIR) Principles](https://www.go-fair.org/fair-principles/)
+    - [Findable, Accessible, Interoperable, Reusable, Ethical, Reproducible (FAIR(ER)) Principles](https://www.go-fair.org/fair-principles/)
 3. Data analysis 
     - [Code review](https://ropensci.org/blog/2017/09/01/nf-softwarereview/), collaboration, generalizable
 4. Data sharing 
@@ -61,29 +64,28 @@ opts_chunk$set(tidy=FALSE, cache=TRUE, echo=TRUE, message=FALSE)
 1. [AFF Health Indicators](https://github.com/eddiekasner/aghealthindicators#ag-health-indicators)
 2. Visit this page to explore datasets for burden, need, impact
     - Please add (via GitHub or email), especially for:
-        - Forestry, Fishing
-        - Idaho, Alaska, Oregon
+        - Forestry
+        - Fishing
+        - Oregon
+        - Idaho
+        - Alaska
 
 ## Data analysis
-
 1. Develop collaborative code development tools (Github?)
 2. Develop systems for code review
 3. Develop functions and tools that can be generalized and shared
 
-## Public-facing data
-
-1. Training
-2. Hypothesis generation
-3. Outreach and engagement
-
 ## Hands-on workshop
 
-1. Exercise 1: Introduction to R and RStudio
-    - Option 1: Use the DEOHS maintained RShiny server
+1. Introduction to R and RStudio
+    - Option 1: Use the SPH maintained RStudio server
         - https://rstudio.sph.washington.edu/  
     - Option 2: Install R and RShiny onto your personal computer
-2. Exercise 2: Flexible Dashboard
-    - https://github.com/elaustin/Ag-Health-Indicators/blob/master/Injury%20Data%20WA/flexdash_injury.Rmd 
+    
+2. Obtain and analyze data from an online source
+    - Example Quarterly Workforce Indicator Data
+
+3. Develop a [data dashboard] (https://rmarkdown.rstudio.com/flexdashboard/)
 
 ## Resources
 
@@ -162,11 +164,11 @@ be covering the other alternatives.
 
 * Easier to learn and teach on because it's centrally managed by IT.
 * SPH runs an RStudio Server on "rstudio.sph" for use by all UW SPH departments.
-   - Link: [https://rstudio.sph.washington.edu](https://rstudio.sph.washington.edu)
+   - Link: [https://rstudio.sph.washington.edu/](https://rstudio.sph.washington.edu/)
    - Free for SPH affiliates (students, staff, faculty, postdocs, etc.) to use. 
    - Requires UW NetID.
-* DEOHS runs an RStudio Server on "Plasmid" for use by DEOHS.
-   - Link: [https://plasmid.deohs.washington.edu](https://plasmid.deohs.washington.edu)
+* DEOHS runs an RStudio Server for use by DEOHS.
+   - Link: [https://plasmid.deohs.washington.edu/](https://plasmid.deohs.washington.edu/)
    - Free for DEOHS affiliates (students, staff, faculty, postdocs, etc.) to use. 
    - Requires UW NetID and DEOHS account.
    - Access directly from UW Campus or remotely through [Husky OnNet VPN](https://itconnect.uw.edu/connect/uw-networks/about-husky-onnet/).
@@ -214,3 +216,142 @@ We will not be spending time on local installations of R and RStudio during this
        usually fine.
 3. You may remove the installers when you have confirmed that RStudio is 
    installed correctly and launches without error.
+   
+## Using R within RStudio
+
+1. If there is a file open, it will appear in the upper-left ("Source") pane
+2. The session information will be found in the upper-right ("Environment") pane
+3. The "Viewer" pane with tabs for files, Plots, Help, etc. is in the 
+   lower-right
+4. The interactive R prompt ("Console") will appear in the left or lower-left pane
+
+![](images/rstudiopanes630x450.png)
+
+## Open a file
+
+In RStudio, start a new Project:
+
+1. File > New Project > Version Control > Git. 
+2. In the “repository URL” paste the URL of this workshop https://github.com/eddiekasner/PNASHR-Workshop
+3. Select a folder directory for your local machine
+4. Look in RStudio’s file browser pane for workshop contents
+
+## Open your first R Script
+
+1. Navigate to the Workshop content in your "File Viewer" pane
+2. Click the file called "My First R Script.R"
+
+## Set up a script file
+
+Start your code with a header describing this code.
+
+```{r, echo = T}
+
+######################################
+#Description: My first code
+#Author: Elena Austin
+#Date: October 2020
+#Version: 1
+######################################
+```
+
+## Section 1 R Syntax
+
+Syntax in a programming language represents the fundamental rules of a programming language. 
+
+**Base R syntax** The example below shows some important elements of R syntax.
+
+* Special character **<-** assigns values to a variable. 
+* You will notice the use of parentheses in R. The round parentheses **()** are used to denote the beginning and end of the inner elements, or arguments, of a function. 
+* In this case, the function is called *c*. To learn more type ?c in your console window.
+
+```{r syntax, echo = T}
+#Creating variables
+
+my_lucky_number <- 5
+my_name <- "Elena"
+my_favorite_ice_cream <- c("chocolate", "vanilla", "maple")
+```
+
+2. To run a line of code put your cursor on that line and press the "run" button OR hit ctrl + enter on the keyboard. You can highlight chunks of code to run multiple lines. 
+
+3. Note that special R packages extend the basic syntax of R. 
+
+## Using packages 
+
+1. R has an active user base who contribute new routines or *packages* to extend capabilities.
+
+2. To use these packages they must be 
+
+* Downloaded and installed
+* Loaded into R
+
+Unless you alter how R is opened, you must load the libraries you wish to use within your R script.
+
+```{r loadinglibs, echo = T, warning= F}
+
+#check that pacman is downloaded
+if (!require("pacman")) 
+  install.packages("pacman") 
+
+#call library pacman to manage libraries
+library(pacman)
+
+#Load package to create descriptive table
+p_load(table1)
+
+```
+
+## Loading and Importing Data
+
+1. Data must be formatted and ready to be imported in R. Formats that are import ready include comma separated values (CSV) lists.
+2. Data imports from excel are possible if data is correctly formatted
+3. Connections to databases and web sources are possible
+
+```{r dataimport, echo = T}
+
+#csv
+mydata <- read.csv("Data/testdata.csv")
+View(mydata)
+
+#generate table
+table1( ~ Petal.Width + Petal.Length | Species, data = mydata)
+
+
+```
+
+## Regression analysis
+
+1. Data analysis can be performed including regression modeling.
+
+2. This example highlights methods to neatly ouput regression results. 
+
+```{r regress, echo = T}
+
+#Regression
+fit <- lm(Petal.Width ~ Petal.Length, data = mydata)
+class(fit)
+summary(fit)
+# par(mfrow=c(2,2))
+# plot(fit)
+
+
+```
+
+## Regression output {.smaller .vcenter }
+
+Regression output can be easily formatted for publication or using packages such as stargazer. 
+
+```{r prettyreg, echo = T, eval=TRUE, results='asis'}
+#make regression output pretty (can generate LaTeX and html output)
+p_load(stargazer)
+stargazer(fit, type = 'html')
+```
+
+## Advanced Data Manipulation
+
+* We will begin to consider some advanced data manipulations within R.
+
+* In this example, we will download the dataset of severe injuries reported to OSHA between 2015 and 2020 directly from the OSHA website.
+
+* The remainder of the workshop will take place interactively within the script file. 
