@@ -380,4 +380,12 @@ stargazer(fit, type = 'html')
 
 * In this example, we will download the dataset of severe injuries reported to OSHA between 2015 and 2020 directly from the OSHA website.
 
-* The remainder of the workshop will take place interactively within the script file. 
+* The remainder of the workshop will take place interactively within the script file titles "severe_injury.R". 
+
+* For additional examples see
+  * [Interactive Injury Dashboard](https://github.com/elaustin/Ag-Health-Indicators/tree/master/Injury%20Data%20WA) 
+  * [Interactive Calibration Dashboard](https://github.com/elaustin/calibration_dashboard)
+  
+* Get support
+  * [DEOHS Coders Group](https://portal.deohs.washington.edu/node/1978)
+  * [Helpful Online Resources](https://support.rstudio.com/hc/en-us/articles/200552336-Getting-Help-with-R)

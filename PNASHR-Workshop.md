@@ -326,6 +326,7 @@ library(pacman)
 p_load(table1)
 ```
 
+<<<<<<< HEAD
 ```
 ## 
 ##   There is a binary version available but the source version is later:
@@ -339,6 +340,9 @@ p_load(table1)
 ```
 
 ## Loading and importing data
+=======
+## Loading and Importing Data
+>>>>>>> cb61f0a0a1e62f0cf4d5dde53a5754d5d072e74d
 
 1. Data must be formatted and ready to be imported in R. Formats that are import ready include comma separated values (CSV) lists.
 2. Data imports from excel are possible if data is correctly formatted
@@ -466,19 +470,6 @@ Regression output can be easily formatted for publication or using packages such
 ```r
 #make regression output pretty (can generate LaTeX and html output)
 p_load(stargazer)
-```
-
-```
-## Warning: unable to access index for repository http://www.stats.ox.ac.uk/pub/RWin/bin/windows/contrib/4.0:
-##   cannot open URL 'http://www.stats.ox.ac.uk/pub/RWin/bin/windows/contrib/4.0/PACKAGES'
-```
-
-package 'stargazer' successfully unpacked and MD5 sums checked
-
-The downloaded binary packages are in
-	C:\Users\ejkasner\AppData\Local\Temp\RtmpWgLkTD\downloaded_packages
-
-```r
 stargazer(fit, type = 'html')
 ```
 
@@ -506,4 +497,12 @@ stargazer(fit, type = 'html')
 
 * In this example, we will download the dataset of severe injuries reported to OSHA between 2015 and 2020 directly from the OSHA website.
 
-* The remainder of the workshop will take place interactively within the script file. 
+* The remainder of the workshop will take place interactively within the script file titles "severe_injury.R". 
+
+* For additional examples see
+  * [Interactive Injury Dashboard](https://github.com/elaustin/Ag-Health-Indicators/tree/master/Injury%20Data%20WA) 
+  * [Interactive Calibration Dashboard](https://github.com/elaustin/calibration_dashboard)
+  
+* Get support
+  * [DEOHS Coders Group](https://portal.deohs.washington.edu/node/1978)
+  * [Helpful Online Resources](https://support.rstudio.com/hc/en-us/articles/200552336-Getting-Help-with-R)
