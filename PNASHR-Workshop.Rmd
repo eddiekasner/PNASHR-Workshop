@@ -22,7 +22,9 @@ opts_chunk$set(tidy=FALSE, cache=TRUE, echo=TRUE, message=FALSE)
 
 ## Agenda
 
-1. Discuss Center Goals (e.g. [reproducible project managment](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0212390)) (30 min)
+1. [NASEM: Reproducibility and Replicability in Science](https://www.nationalacademies.org/our-work/reproducibility-and-replicability-in-science)
+
+2. Discuss Center Goals (e.g. [reproducible project managment](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0212390)) (30 min)
     - Overall data framework
     - Uniform data collection tools
     - Data management
@@ -30,7 +32,19 @@ opts_chunk$set(tidy=FALSE, cache=TRUE, echo=TRUE, message=FALSE)
     - Data analysis
     - Data Sharing
     
-2. Hands-on workshop and R "onramp" (60 min)
+3. Hands-on workshop and R "onramp" (60 min)
+
+## NASEM Definitions
+
+**Reproducibility**
+
+> *"obtaining consistent results using the same input data, computational steps, methods, and conditions of analysis"*
+
+**Replicability**
+
+> *"obtaining consistent results across studies aimed at
+answering the same scientific question, each of which has
+obtained its own data"*
 
 ## Overall data framework
 
