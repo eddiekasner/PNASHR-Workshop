@@ -1,54 +1,61 @@
 ---
 title: "PNASHR-Workshop"
-author: "Eddie Kasner and Elena Austin"
-date: "[PNASHR-Workshop](https://github.com/eddiekasner/PNASHR-Workshop) by [PNASH](https://deohs.washington.edu/pnash/) is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)"
-License: "![CC BY-SA 4.0](images/cc_by-sa_4.png){width=10%}"
+subtitle: "Eddie Kasner and Elena Austin"
+author: "[PNASHR-Workshop](https://github.com/eddiekasner/PNASHR-Workshop) by [PNASH](https://deohs.washington.edu/pnash/) is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) and a derivative of [r_onramp](https://github.com/deohs/r_onramp/blob/master/Introduction.md)" 
+date: "![CC BY-SA 4.0](images/cc_by-sa_4.png){width=10%}"
 
 output:
   ioslides_presentation:
-    fig_caption: yes
+    fig_caption: true
     fig_height: 3
     fig_retina: 1
     fig_width: 5
-    keep_md: yes
+    keep_md: true
     logo: images/pnash-logo.png
-    smaller: yes
+    smaller: true
+    widescreen: true
+    css: styles.css
 ---
 
 
 
 ## Agenda
 
-1. [NASEM: Reproducibility and Replicability in Science](https://www.nationalacademies.org/our-work/reproducibility-and-replicability-in-science)
-
-2. Discuss Center Goals (e.g. [reproducible project managment](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0212390)) (30 min)
+1. Discuss Center data goals (e.g. [reproducible project managment](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0212390)) (30 min)
     - Overall data framework
     - Uniform data collection tools
     - Data management
     - Data sources
     - Data analysis
-    - Data Sharing
+    - Data sharing
     
-3. Hands-on workshop and R "onramp" (60 min)
+2. Hands-on workshop and R "onramp" (60 min)
 
-## NASEM Definitions
+## Reproducibility and Replicability in Science
 
-**Reproducibility**
+<img src="images/nasem-rr.jpg" width="30%" style="display: block; margin: auto;" />
 
-> *"obtaining consistent results using the same input data, computational steps, methods, and conditions of analysis"*
+[Link to report](https://www.nationalacademies.org/our-work/reproducibility-and-replicability-in-science)
 
-**Replicability**
+## NASEM Definitions (2019) {.build}
 
-> *"obtaining consistent results across studies aimed at
-answering the same scientific question, each of which has
-obtained its own data"*
+### Reproducibility
+
+>"obtaining consistent results using the same input data, computational steps, methods, and conditions of analysis"
+
+### Replicability
+
+>"obtaining consistent results across studies aimed at answering the same scientific question, each of which has
+obtained its own data"
+
+["BD2K": Big Data to Knowledge](https://commonfund.nih.gov/bd2k)
 
 ## Overall data framework
 
 1. Data collection 
     - Sources and collection methods
 2. Data management 
-    - [Findable, Accessible, Interoperable, Reusable, Ethical, Reproducible (FAIR(ER)) Principles](https://www.go-fair.org/fair-principles/)
+    - [Findable, Accessible, Interoperable, Reusable, Ethical, Reproducible (FAIR(ER)) Principles](https://www.nature.com/articles/sdata201618)
 3. Data analysis 
     - [Code review](https://ropensci.org/blog/2017/09/01/nf-softwarereview/), collaboration, generalizable
 4. Data sharing 
@@ -72,17 +79,14 @@ obtained its own data"*
 
 ## Data sources
 
-1. [AFF Health Indicators](https://github.com/eddiekasner/aghealthindicators#ag-health-indicators)
-2. Visit this page to explore datasets for burden, need, impact
-    - Please add (via GitHub or email), especially for:
-        - Forestry
-        - Fishing
-        - Oregon
-        - Idaho
-        - Alaska
+1. Visit [AFF Health Indicators](https://github.com/eddiekasner/aghealthindicators#ag-health-indicators) to explore datasets for [burden, need, impact](https://www.cdc.gov/niosh/programs/bni.html)
+2. Please add data sources (via GitHub or ejkasner@uw.edu), especially for:
+    - Forestry, Fishing
+    - Oregon, Idaho, Alaska
 
 ## Data analysis
-1. Develop collaborative code development tools (Github?)
+
+1. Develop collaborative code development tools (GitHub?)
 2. Develop systems for code review
 3. Develop functions and tools that can be generalized and shared
 
@@ -91,12 +95,21 @@ obtained its own data"*
 1. Introduction to R and RStudio
     - Option 1: Use the SPH maintained RStudio server
         - https://rstudio.sph.washington.edu/  
-    - Option 2: Install R and RShiny onto your personal computer
+    - Option 2: Install R and RStudio onto your personal computer
     
 2. Obtain and analyze data from an online source
     - Example Quarterly Workforce Indicator Data
 
 3. Develop a [data dashboard] (https://rmarkdown.rstudio.com/flexdashboard/)
+
+## Reflection (3 mins)
+
+Click through to [this google doc](https://docs.google.com/document/d/1nVsgpdX4GBpLg84OXuzplmNWjwHp_CaszOUOQAR8jaE/edit?usp=sharing) and share your thoughts:
+
+1. What seems doable on your team now? in 1 year? in 5 years?
+2. What seems doable for the center now? in 1 year? in 5 years?
+3. Pitfalls to avoid in this work?
+4. Other ideas sparked?
 
 ## Resources
 
@@ -210,7 +223,7 @@ and has paid subscription upgrade.
 * We will not focus on local installation or use during this introductory onramp,
 but some instructions are at the end of this presentation.
 
-## How to install R and RStudio Desktop
+## How to install R and RStudio desktop
 
 We will not be spending time on local installations of R and RStudio during this introductory onramp. These instructions are here for reference if needed:
 
@@ -325,7 +338,7 @@ p_load(table1)
 ## 	C:\Users\ejkasner\AppData\Local\Temp\RtmpWgLkTD\downloaded_packages
 ```
 
-## Loading and Importing Data
+## Loading and importing data
 
 1. Data must be formatted and ready to be imported in R. Formats that are import ready include comma separated values (CSV) lists.
 2. Data imports from excel are possible if data is correctly formatted
@@ -487,7 +500,7 @@ stargazer(fit, type = 'html')
 <tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
 </table>
 
-## Advanced Data Manipulation
+## Advanced data manipulation
 
 * We will begin to consider some advanced data manipulations within R.
 
