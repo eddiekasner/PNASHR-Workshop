@@ -1,7 +1,8 @@
 ---
 title: "PNASHR-Workshop"
-author: "![CC BY-SA 4.0](images/cc_by-sa_4.png){width=10%}"
-date: "[DEOHS R onramp](https://github.com/deohs/r_onramp) by [deohs](https://github.com/deohs) is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)"
+author: "Eddie Kasner and Elena Austin"
+date: "[PNASHR-Workshop](https://github.com/eddiekasner/PNASHR-Workshop) by [PNASH](https://deohs.washington.edu/pnash/) is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)"
+License: "![CC BY-SA 4.0](images/cc_by-sa_4.png){width=10%}"
 
 output:
   ioslides_presentation:
@@ -18,12 +19,14 @@ output:
 
 ## Agenda
 
-1. Discuss possible "5-year plan" (e.g. [reproducible project managment](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0212390)) (30 min)
+1. Discuss Center Goals (e.g. [reproducible project managment](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0212390)) (30 min)
     - Overall data framework
     - Uniform data collection tools
     - Data management
     - Data sources
     - Data analysis
+    - Data Sharing
+    
 2. Hands-on workshop and R "onramp" (60 min)
 
 ## Overall data framework
@@ -31,7 +34,7 @@ output:
 1. Data collection 
     - Sources and collection methods
 2. Data management 
-    - [Findable, Accessible, Interoperable, and Reusable (FAIR) Principles](https://www.go-fair.org/fair-principles/)
+    - [Findable, Accessible, Interoperable, Reusable, Ethical, Reproducible (FAIR(ER)) Principles](https://www.go-fair.org/fair-principles/)
 3. Data analysis 
     - [Code review](https://ropensci.org/blog/2017/09/01/nf-softwarereview/), collaboration, generalizable
 4. Data sharing 
@@ -58,29 +61,28 @@ output:
 1. [AFF Health Indicators](https://github.com/eddiekasner/aghealthindicators#ag-health-indicators)
 2. Visit this page to explore datasets for burden, need, impact
     - Please add (via GitHub or email), especially for:
-        - Forestry, Fishing
-        - Idaho, Alaska, Oregon
+        - Forestry
+        - Fishing
+        - Oregon
+        - Idaho
+        - Alaska
 
 ## Data analysis
-
 1. Develop collaborative code development tools (Github?)
 2. Develop systems for code review
 3. Develop functions and tools that can be generalized and shared
 
-## Public-facing data
-
-1. Training
-2. Hypothesis generation
-3. Outreach and engagement
-
 ## Hands-on workshop
 
-1. Exercise 1: Introduction to R and RStudio
-    - Option 1: Use the DEOHS maintained RShiny server
+1. Introduction to R and RStudio
+    - Option 1: Use the SPH maintained RStudio server
         - https://rstudio.sph.washington.edu/  
     - Option 2: Install R and RShiny onto your personal computer
-2. Exercise 2: Flexible Dashboard
-    - https://github.com/elaustin/Ag-Health-Indicators/blob/master/Injury%20Data%20WA/flexdash_injury.Rmd 
+    
+2. Obtain and analyze data from an online source
+    - Example Quarterly Workforce Indicator Data
+
+3. Develop a [data dashboard] (https://rmarkdown.rstudio.com/flexdashboard/)
 
 ## Resources
 
@@ -159,11 +161,11 @@ be covering the other alternatives.
 
 * Easier to learn and teach on because it's centrally managed by IT.
 * SPH runs an RStudio Server on "rstudio.sph" for use by all UW SPH departments.
-   - Link: [https://rstudio.sph.washington.edu](https://rstudio.sph.washington.edu)
+   - Link: [https://rstudio.sph.washington.edu/](https://rstudio.sph.washington.edu/)
    - Free for SPH affiliates (students, staff, faculty, postdocs, etc.) to use. 
    - Requires UW NetID.
-* DEOHS runs an RStudio Server on "Plasmid" for use by DEOHS.
-   - Link: [https://plasmid.deohs.washington.edu](https://plasmid.deohs.washington.edu)
+* DEOHS runs an RStudio Server for use by DEOHS.
+   - Link: [https://plasmid.deohs.washington.edu/](https://plasmid.deohs.washington.edu/)
    - Free for DEOHS affiliates (students, staff, faculty, postdocs, etc.) to use. 
    - Requires UW NetID and DEOHS account.
    - Access directly from UW Campus or remotely through [Husky OnNet VPN](https://itconnect.uw.edu/connect/uw-networks/about-husky-onnet/).
@@ -211,3 +213,245 @@ We will not be spending time on local installations of R and RStudio during this
        usually fine.
 3. You may remove the installers when you have confirmed that RStudio is 
    installed correctly and launches without error.
+   
+## Using R within RStudio
+
+1. If there is a file open, it will appear in the upper-left ("Source") pane
+2. The session information will be found in the upper-right ("Environment") pane
+3. The "Viewer" pane with tabs for files, Plots, Help, etc. is in the 
+   lower-right
+4. The interactive R prompt ("Console") will appear in the left or lower-left pane
+
+![](images/rstudiopanes630x450.png)
+
+## Open a file
+
+In RStudio, start a new Project:
+
+1. File > New Project > Version Control > Git. 
+2. In the “repository URL” paste the URL of this workshop https://github.com/eddiekasner/PNASHR-Workshop
+3. Select a folder directory for your local machine
+4. Look in RStudio’s file browser pane for workshop contents
+
+## Open your first R Script
+
+1. Navigate to the Workshop content in your "File Viewer" pane
+2. Click the file called "My First R Script.R"
+
+## Set up a script file
+
+Start your code with a header describing this code.
+
+
+```r
+######################################
+#Description: My first code
+#Author: Elena Austin
+#Date: October 2020
+#Version: 1
+######################################
+```
+
+## Section 1 R Syntax
+
+Syntax in a programming language represents the fundamental rules of a programming language. 
+
+**Base R syntax** The example below shows some important elements of R syntax.
+
+* Special character **<-** assigns values to a variable. 
+* You will notice the use of parentheses in R. The round parentheses **()** are used to denote the beginning and end of the inner elements, or arguments, of a function. 
+* In this case, the function is called *c*. To learn more type ?c in your console window.
+
+
+```r
+#Creating variables
+
+my_lucky_number <- 5
+my_name <- "Elena"
+my_favorite_ice_cream <- c("chocolate", "vanilla", "maple")
+```
+
+2. To run a line of code put your cursor on that line and press the "run" button OR hit ctrl + enter on the keyboard. You can highlight chunks of code to run multiple lines. 
+
+3. Note that special R packages extend the basic syntax of R. 
+
+## Using packages 
+
+1. R has an active user base who contribute new routines or *packages* to extend capabilities.
+
+2. To use these packages they must be 
+
+* Downloaded and installed
+* Loaded into R
+
+Unless you alter how R is opened, you must load the libraries you wish to use within your R script.
+
+
+```r
+#check that pacman is downloaded
+if (!require("pacman")) 
+  install.packages("pacman") 
+
+#call library pacman to manage libraries
+library(pacman)
+
+#Load package to create descriptive table
+p_load(table1)
+```
+
+## Loading and Importing Data
+
+1. Data must be formatted and ready to be imported in R. Formats that are import ready include comma separated values (CSV) lists.
+2. Data imports from excel are possible if data is correctly formatted
+3. Connections to databases and web sources are possible
+
+
+```r
+#csv
+mydata <- read.csv("Data/testdata.csv")
+View(mydata)
+
+#generate table
+table1( ~ Petal.Width + Petal.Length | Species, data = mydata)
+```
+
+<!--html_preserve--><div class="Rtable1"><table class="Rtable1">
+<thead>
+<tr>
+<th class='rowlabel firstrow lastrow'></th>
+<th class='firstrow lastrow'><span class='stratlabel'>setosa<br><span class='stratn'>(N=50)</span></span></th>
+<th class='firstrow lastrow'><span class='stratlabel'>versicolor<br><span class='stratn'>(N=50)</span></span></th>
+<th class='firstrow lastrow'><span class='stratlabel'>virginica<br><span class='stratn'>(N=50)</span></span></th>
+<th class='firstrow lastrow'><span class='stratlabel'>Overall<br><span class='stratn'>(N=150)</span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='rowlabel firstrow'><span class='varlabel'>Petal.Width</span></td>
+<td class='firstrow'></td>
+<td class='firstrow'></td>
+<td class='firstrow'></td>
+<td class='firstrow'></td>
+</tr>
+<tr>
+<td class='rowlabel'>Mean (SD)</td>
+<td>0.246 (0.105)</td>
+<td>1.33 (0.198)</td>
+<td>2.03 (0.275)</td>
+<td>1.20 (0.762)</td>
+</tr>
+<tr>
+<td class='rowlabel lastrow'>Median [Min, Max]</td>
+<td class='lastrow'>0.200 [0.100, 0.600]</td>
+<td class='lastrow'>1.30 [1.00, 1.80]</td>
+<td class='lastrow'>2.00 [1.40, 2.50]</td>
+<td class='lastrow'>1.30 [0.100, 2.50]</td>
+</tr>
+<tr>
+<td class='rowlabel firstrow'><span class='varlabel'>Petal.Length</span></td>
+<td class='firstrow'></td>
+<td class='firstrow'></td>
+<td class='firstrow'></td>
+<td class='firstrow'></td>
+</tr>
+<tr>
+<td class='rowlabel'>Mean (SD)</td>
+<td>1.46 (0.174)</td>
+<td>4.26 (0.470)</td>
+<td>5.55 (0.552)</td>
+<td>3.76 (1.77)</td>
+</tr>
+<tr>
+<td class='rowlabel lastrow'>Median [Min, Max]</td>
+<td class='lastrow'>1.50 [1.00, 1.90]</td>
+<td class='lastrow'>4.35 [3.00, 5.10]</td>
+<td class='lastrow'>5.55 [4.50, 6.90]</td>
+<td class='lastrow'>4.35 [1.00, 6.90]</td>
+</tr>
+</tbody>
+</table>
+</div><!--/html_preserve-->
+
+## Regression analysis
+
+1. Data analysis can be performed including regression modeling.
+
+2. This example highlights methods to neatly ouput regression results. 
+
+
+```r
+#Regression
+fit <- lm(Petal.Width ~ Petal.Length, data = mydata)
+class(fit)
+```
+
+```
+## [1] "lm"
+```
+
+```r
+summary(fit)
+```
+
+```
+## 
+## Call:
+## lm(formula = Petal.Width ~ Petal.Length, data = mydata)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.56515 -0.12358 -0.01898  0.13288  0.64272 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  -0.363076   0.039762  -9.131  4.7e-16 ***
+## Petal.Length  0.415755   0.009582  43.387  < 2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.2065 on 148 degrees of freedom
+## Multiple R-squared:  0.9271,	Adjusted R-squared:  0.9266 
+## F-statistic:  1882 on 1 and 148 DF,  p-value: < 2.2e-16
+```
+
+```r
+# par(mfrow=c(2,2))
+# plot(fit)
+```
+
+## Regression output {.smaller .vcenter }
+
+Regression output can be easily formatted for publication or using packages such as stargazer. 
+
+
+```r
+#make regression output pretty (can generate LaTeX and html output)
+p_load(stargazer)
+stargazer(fit, type = 'html')
+```
+
+
+<table style="text-align:center"><tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td><em>Dependent variable:</em></td></tr>
+<tr><td></td><td colspan="1" style="border-bottom: 1px solid black"></td></tr>
+<tr><td style="text-align:left"></td><td>Petal.Width</td></tr>
+<tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Petal.Length</td><td>0.416<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.010)</td></tr>
+<tr><td style="text-align:left"></td><td></td></tr>
+<tr><td style="text-align:left">Constant</td><td>-0.363<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.040)</td></tr>
+<tr><td style="text-align:left"></td><td></td></tr>
+<tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Observations</td><td>150</td></tr>
+<tr><td style="text-align:left">R<sup>2</sup></td><td>0.927</td></tr>
+<tr><td style="text-align:left">Adjusted R<sup>2</sup></td><td>0.927</td></tr>
+<tr><td style="text-align:left">Residual Std. Error</td><td>0.206 (df = 148)</td></tr>
+<tr><td style="text-align:left">F Statistic</td><td>1,882.452<sup>***</sup> (df = 1; 148)</td></tr>
+<tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
+</table>
+
+## Advanced Data Manipulation
+
+* We will begin to consider some advanced data manipulations within R.
+
+* In this example, we will download the dataset of severe injuries reported to OSHA between 2015 and 2020 directly from the OSHA website.
+
+* The remainder of the workshop will take place interactively within the script file. 
