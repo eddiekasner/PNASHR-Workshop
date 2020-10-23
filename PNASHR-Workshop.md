@@ -272,10 +272,10 @@ Start your code with a header describing this code.
 
 ```r
 ######################################
-#Description: My first code
-#Author: Elena Austin
-#Date: October 2020
-#Version: 1
+# Description: My first code
+# Author: Elena Austin
+# Date: October 2020
+# Version: 1
 ######################################
 ```
 
@@ -291,7 +291,7 @@ Syntax in a programming language represents the fundamental rules of a programmi
 
 
 ```r
-#Creating variables
+# Create variables
 
 my_lucky_number <- 5
 my_name <- "Elena"
@@ -315,34 +315,15 @@ Unless you alter how R is opened, you must load the libraries you wish to use wi
 
 
 ```r
-#check that pacman is downloaded
+# Check that pacman is installed
 if (!require("pacman")) 
-  install.packages("pacman") 
+  install.packages("pacman", repos = "https://cloud.r-project.org") 
 
-#call library pacman to manage libraries
-library(pacman)
-
-#Load package to create descriptive table
-p_load(table1)
-```
-
-<<<<<<< HEAD
-```
-## 
-##   There is a binary version available but the source version is later:
-##         binary source needs_compilation
-## Formula  1.2-3  1.2-4             FALSE
-## 
-## package 'table1' successfully unpacked and MD5 sums checked
-## 
-## The downloaded binary packages are in
-## 	C:\Users\ejkasner\AppData\Local\Temp\RtmpWgLkTD\downloaded_packages
+# Load package to create descriptive table
+pacman::p_load(table1)
 ```
 
 ## Loading and importing data
-=======
-## Loading and Importing Data
->>>>>>> cb61f0a0a1e62f0cf4d5dde53a5754d5d072e74d
 
 1. Data must be formatted and ready to be imported in R. Formats that are import ready include comma separated values (CSV) lists.
 2. Data imports from excel are possible if data is correctly formatted
@@ -350,11 +331,15 @@ p_load(table1)
 
 
 ```r
-#csv
+# Read CSV
 mydata <- read.csv("Data/testdata.csv")
-View(mydata)
+```
 
-#generate table
+
+
+
+```r
+# Generate table1
 table1( ~ Petal.Width + Petal.Length | Species, data = mydata)
 ```
 
@@ -415,15 +400,14 @@ table1( ~ Petal.Width + Petal.Length | Species, data = mydata)
 </table>
 </div><!--/html_preserve-->
 
-## Regression analysis
+## Regression analysis: Fit
 
 1. Data analysis can be performed including regression modeling.
-
-2. This example highlights methods to neatly ouput regression results. 
+2. This example highlights methods to neatly output regression results. 
 
 
 ```r
-#Regression
+# Regression
 fit <- lm(Petal.Width ~ Petal.Length, data = mydata)
 class(fit)
 ```
@@ -431,6 +415,11 @@ class(fit)
 ```
 ## [1] "lm"
 ```
+
+## Regression analysis: Summary
+
+You can view the regression summary with `summary()`.
+
 
 ```r
 summary(fit)
@@ -457,10 +446,15 @@ summary(fit)
 ## F-statistic:  1882 on 1 and 148 DF,  p-value: < 2.2e-16
 ```
 
+## Regression analysis: Plot
+
+
 ```r
-# par(mfrow=c(2,2))
-# plot(fit)
+par(mfrow=c(2,2))
+plot(fit)
 ```
+
+![](PNASHR-Workshop_files/figure-html/regress_plot-1.png)<!-- -->
 
 ## Regression output {.smaller .vcenter }
 
@@ -468,8 +462,8 @@ Regression output can be easily formatted for publication or using packages such
 
 
 ```r
-#make regression output pretty (can generate LaTeX and html output)
-p_load(stargazer)
+# Make regression output pretty (can generate LaTeX and html output)
+pacman::p_load(stargazer)
 stargazer(fit, type = 'html')
 ```
 

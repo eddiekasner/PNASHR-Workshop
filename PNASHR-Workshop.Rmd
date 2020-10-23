@@ -19,7 +19,7 @@ output:
 
 ```{r set_knitr_options, echo=FALSE, message=FALSE, warning=FALSE}
 suppressMessages(library(knitr))
-opts_chunk$set(tidy=FALSE, cache=TRUE, echo=TRUE, message=FALSE)
+opts_chunk$set(tidy=FALSE, cache=FALSE, echo=TRUE, message=FALSE)
 ```
 
 ## Agenda
@@ -277,10 +277,10 @@ Start your code with a header describing this code.
 ```{r, echo = T}
 
 ######################################
-#Description: My first code
-#Author: Elena Austin
-#Date: October 2020
-#Version: 1
+# Description: My first code
+# Author: Elena Austin
+# Date: October 2020
+# Version: 1
 ######################################
 ```
 
@@ -295,7 +295,7 @@ Syntax in a programming language represents the fundamental rules of a programmi
 * In this case, the function is called *c*. To learn more type ?c in your console window.
 
 ```{r syntax, echo = T}
-#Creating variables
+# Create variables
 
 my_lucky_number <- 5
 my_name <- "Elena"
@@ -318,17 +318,12 @@ my_favorite_ice_cream <- c("chocolate", "vanilla", "maple")
 Unless you alter how R is opened, you must load the libraries you wish to use within your R script.
 
 ```{r loadinglibs, echo = T, warning= F}
-
-#check that pacman is downloaded
+# Check that pacman is installed
 if (!require("pacman")) 
-  install.packages("pacman") 
+  install.packages("pacman", repos = "https://cloud.r-project.org") 
 
-#call library pacman to manage libraries
-library(pacman)
-
-#Load package to create descriptive table
-p_load(table1)
-
+# Load package to create descriptive table
+pacman::p_load(table1)
 ```
 
 ## Loading and importing data
@@ -338,30 +333,43 @@ p_load(table1)
 3. Connections to databases and web sources are possible
 
 ```{r dataimport, echo = T}
-
-#csv
+# Read CSV
 mydata <- read.csv("Data/testdata.csv")
-View(mydata)
-
-#generate table
-table1( ~ Petal.Width + Petal.Length | Species, data = mydata)
-
 ```
 
-## Regression analysis
+```{r viewdata, echo=F, eval=F}
+View(mydata)
+```
+
+```{r gentable1}
+# Generate table1
+table1( ~ Petal.Width + Petal.Length | Species, data = mydata)
+```
+
+## Regression analysis: Fit
 
 1. Data analysis can be performed including regression modeling.
-
-2. This example highlights methods to neatly ouput regression results. 
+2. This example highlights methods to neatly output regression results. 
 
 ```{r regress, echo = T}
-
-#Regression
+# Regression
 fit <- lm(Petal.Width ~ Petal.Length, data = mydata)
 class(fit)
+```
+
+## Regression analysis: Summary
+
+You can view the regression summary with `summary()`.
+
+```{r regress_summary, echo = T}
 summary(fit)
-# par(mfrow=c(2,2))
-# plot(fit)
+```
+
+## Regression analysis: Plot
+
+```{r regress_plot, echo = T, fig.height=4, fig.width=7}
+par(mfrow=c(2,2))
+plot(fit)
 ```
 
 ## Regression output {.smaller .vcenter }
@@ -369,8 +377,8 @@ summary(fit)
 Regression output can be easily formatted for publication or using packages such as stargazer. 
 
 ```{r prettyreg, echo = T, eval=TRUE, results='asis'}
-#make regression output pretty (can generate LaTeX and html output)
-p_load(stargazer)
+# Make regression output pretty (can generate LaTeX and html output)
+pacman::p_load(stargazer)
 stargazer(fit, type = 'html')
 ```
 
