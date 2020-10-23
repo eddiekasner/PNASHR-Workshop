@@ -5,20 +5,15 @@
 #Version: 1
 ######################################
 
-library(pacman)
+#check that pacman is downloaded
+if (!require("pacman")) 
+  install.packages("pacman") 
 
 #use p_load to install and load new packages
-p_load(data.table)
-p_load(bit64)
-p_load(readxl)
-p_load(table1)
+pacman::p_load(data.table, bit64, readxl, table1, curl)
 
-#do not run on SPH server
+#read csv file
 severeinjuries <- fread("https://www.osha.gov/severeinjury/xml/severeinjury.csv")
-
-#if on the sph server
-unzip("Data/SevereInjuries20201021.zip", exdir = "Data")
-severeinjuries = fread("Data/SevereInjuries20201021.csv")
 
 #read excel file (skip first 2 rows)
 naics <- read_excel("Data/2012_NAICS_Structure.xls", skip = 2)

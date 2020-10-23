@@ -22,12 +22,8 @@ my_favorite_ice_cream <- c("chocolate", "vanilla", "maple")
 if (!require("pacman")) 
   install.packages("pacman") 
 
-#call library pacman to manage libraries
-library(pacman)
-
 #Load package to create descriptive table
-p_load(table1)
-
+pacman::p_load(table1)
 
 #Read in data
 #.csv format
